@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: RE partners Backend Coding Exercise
+  description: |-
+  version: 1.0.11
+servers:
+  - url: http://localhost:8085
+paths:
+  /packs:
+    get:
+      tags:
+        - Loan
+      summary: calculate the number of packs we need to ship to the customer.
+      description: calculate the number of packs we need to ship to the customer.
+      operationId: packs
+      parameters:
+        - name: orderItems
+          in: query
+          description: Items ordered
+          required: true
+          example: 100000
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example:
+                  value:
+                    message: credit-score is empty
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example:
+                  value:
+                    message: something went wrong
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        packs:
+          type: array
+          items:
+            type: object
+            properties:
+              pack:
+                type: integer
+              quantity:
+                type: integer
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+

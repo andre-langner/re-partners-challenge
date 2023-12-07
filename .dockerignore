@@ -1,0 +1,31 @@
+# flyctl launch added from .gitignore
+# Binaries
+**/bin
+**/*debug*bin
+
+# Env variables
+**/.envrc
+**/.env*
+
+# IDEs
+**/.idea
+**/*.iml
+**/.DS_Store
+**/.vscode
+**/*.code-workspace
+
+**/db/data
+**/*.out
+
+**/.go-version
+
+**/coverage*
+**/*-app
+
+# flyctl launch added from .idea/.gitignore
+# Default ignored files
+.idea/shelf
+.idea/workspace.xml
+# Editor-based HTTP Client requests
+.idea/httpRequests
+fly.toml
